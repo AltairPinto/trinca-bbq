@@ -7,6 +7,11 @@ export const Container = styled.div`
     display: flex;
     margin: 1rem 0;
   }
+
+  p {
+    position: absolute;
+    margin: 0;
+  }
 `;
 
 export const Input = styled.input<{ error: boolean }>`

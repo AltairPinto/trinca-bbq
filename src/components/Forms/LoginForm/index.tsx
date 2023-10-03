@@ -1,14 +1,22 @@
 import { Button } from 'components/Button';
-import { Container } from './styles';
+import { ActionContainer, Form } from './styles';
 import { TextField } from 'components/Inputs/TextField';
 import { useForm } from 'react-hook-form';
+import { loginValidation } from './validationSchema';
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    resolver: loginValidation,
+  });
 
   const onSubmit = (data) => {
     // eslint-disable-next-line no-console
@@ -16,36 +24,30 @@ const LoginForm = () => {
   };
 
   return (
-    <Container onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <TextField
+        name="email"
         label="Login"
         placeholder="e-mail"
-        {...register('email', {
-          required: 'Email é obrigatório',
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-            message: 'Email inválido',
-          },
-        })}
         error={Boolean(errors.email)}
         helperText={String(errors.email?.message)}
+        {...register('email')}
       />
-      <br />
       <TextField
+        name="password"
         label="Senha"
         placeholder="senha"
         type="password"
-        {...register('password', {
-          required: 'Senha é obrigatória',
-          minLength: {
-            value: 6,
-            message: 'A senha deve ter pelo menos 6 caracteres',
-          },
-        })}
+        error={Boolean(errors.password)}
+        helperText={String(errors.password?.message)}
+        {...register('password')}
       />
-      <br />
-      <Button type="submit">Entrar</Button>
-    </Container>
+      <ActionContainer>
+        <Button type="submit" disabled={!isValid}>
+          Entrar
+        </Button>
+      </ActionContainer>
+    </Form>
   );
 };
 

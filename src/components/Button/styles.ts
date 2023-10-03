@@ -15,5 +15,12 @@ export const Container = styled.button`
     font-size: ${theme.typography.h3.fontSize};
     font-family: ${theme.typography.fontFamily};
     font-weight: ${theme.typography.h3.fontWeight};
+
+    &:disabled {
+      background-color: ${theme.colors.gray};
+      color: ${theme.colors.black};
+      cursor: not-allowed;
+      opacity: 0.75;
+    }
   `}
 `;

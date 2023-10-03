@@ -6,11 +6,21 @@ type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   error?: boolean;
   helperText?: string;
+  required?: boolean;
 };
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   (
-    { label, placeholder, error, onFocus, onBlur, helperText, ...props },
+    {
+      label,
+      placeholder,
+      error,
+      onFocus,
+      onBlur,
+      helperText,
+      required,
+      ...props
+    },
     ref,
   ) => {
     return (
@@ -22,10 +32,11 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           onFocus={onFocus}
           onBlur={onBlur}
           error={error}
+          required={required}
           {...props}
         />
         {error && (
-          <Typography variant="label" color="error">
+          <Typography variant="p" color="error">
             {helperText}
           </Typography>
         )}
