@@ -5,52 +5,47 @@ const theme = {
     black: '#000000',
     white: '#FFFFFF',
     gray: '#F1F1F1',
+    error: '#FF3333',
+    success: '#22bb33',
+    warning: '#f0ad4e',
   },
   typography: {
     fontFamily: 'Raleway',
     h1: {
       fontSize: '2rem',
       fontWeight: 700,
+      lineHeight: '2.348rem',
     },
     h2: {
       fontSize: '1.5rem',
       fontWeight: 600,
     },
     h3: {
-      fontSize: '1rem',
+      fontSize: '1.25rem',
       fontWeight: 700,
     },
     h4: {
       fontWeight: 500,
       fontSize: '1rem',
     },
-    button: {
-      fontSize: '0.875rem',
-      fontWeight: 700,
-    },
-    link: {
-      fontSize: '1rem',
-      fontWeight: 700,
-    },
-    p1: {
-      fontSize: '0.875rem',
+    h5: {
       fontWeight: 500,
+      fontSize: '.75rem',
     },
-    p2: {
-      fontSize: '0.75rem',
-      fontWeight: 500,
-    },
-    p3: {
-      fontSize: '0.75rem',
+    label: {
+      fontSize: '1.313rem',
       fontWeight: 700,
+      lineHeight: '1.541rem',
     },
-    overline: {
-      fontSize: '0.75rem',
-      fontWeight: 600,
-    },
-    tag: {
-      fontSize: '0.6875rem',
+    p: {
+      fontSize: '1.125rem',
       fontWeight: 700,
+      lineHeight: '1.321rem',
+    },
+    span: {
+      fontSize: '1.313rem',
+      fontWeight: 700,
+      lineHeight: '1.541rem',
     },
   },
 };

@@ -1,205 +1,73 @@
 import styled, { css } from 'styled-components';
 import type { TypographyProps } from '.';
 
+const commonStyles = css`
+  font-family: ${({ theme }) => theme.typography.fontFamily};
+`;
+
 export const variantMapping = {
   h1: styled.h1<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
       font-size: ${theme.typography.h1.fontSize};
-      font-family: ${theme.typography.fontFamily};
       font-weight: ${theme.typography.h1.fontWeight};
     `};
   `,
   h2: styled.h2<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
       font-size: ${theme.typography.h2.fontSize};
-      font-family: ${theme.typography.fontFamily};
       font-weight: ${theme.typography.h2.fontWeight};
     `};
   `,
   h3: styled.h3<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
       font-size: ${theme.typography.h3.fontSize};
-      font-family: ${theme.typography.fontFamily};
       font-weight: ${theme.typography.h3.fontWeight};
     `}
   `,
   h4: styled.h4<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
       font-size: ${theme.typography.h4.fontSize};
-      font-family: ${theme.typography.fontFamily};
       font-weight: ${theme.typography.h4.fontWeight};
     `};
   `,
-  button: styled.span<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+  h5: styled.h4<TypographyProps>`
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
-      font-size: ${theme.typography.button.fontSize};
-      font-family: ${theme.typography.fontFamily};
-      font-weight: ${theme.typography.button.fontWeight};
+      font-size: ${theme.typography.h5.fontSize};
+      font-weight: ${theme.typography.h5.fontWeight};
     `};
   `,
-  p1: styled.p<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+  span: styled.span<TypographyProps>`
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
-      font-size: ${theme.typography.p1.fontSize};
-      font-family: ${theme.typography.fontFamily};
-      font-weight: ${theme.typography.p1.fontWeight};
+      font-size: ${theme.typography.span.fontSize};
+      font-weight: ${theme.typography.span.fontWeight};
     `};
   `,
-  p2: styled.p<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+  p: styled.p<TypographyProps>`
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
-      font-size: ${theme.typography.p2.fontSize};
-      font-family: ${theme.typography.fontFamily};
-      font-weight: ${theme.typography.p2.fontWeight};
+      font-size: ${theme.typography.p.fontSize};
+      font-weight: ${theme.typography.p.fontWeight};
     `};
   `,
-  p3: styled.p<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
+  label: styled.label<TypographyProps>`
+    ${commonStyles};
     ${({ theme, color }) => css`
       color: ${theme.colors[color]};
-      font-size: ${theme.typography.p3.fontSize};
-      font-family: ${theme.typography.fontFamily};
-      font-weight: ${theme.typography.p3.fontWeight};
-    `}
-  `,
-  overline: styled.p<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
-    ${({ theme, color }) => css`
-      color: ${theme.colors[color]};
-      font-size: ${theme.typography.overline.fontSize};
-      font-family: ${theme.typography.fontFamily};
-      font-weight: ${theme.typography.overline.fontWeight};
-    `}
-  `,
-  tag: styled.p<TypographyProps>`
-    ${({ truncate }) =>
-      truncate &&
-      css`
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      `};
-    ${({ strikethrough }) =>
-      strikethrough &&
-      css`
-        text-decoration: line-through;
-      `};
-    ${({ theme, color }) => css`
-      color: ${theme.colors[color]};
-      font-size: ${theme.typography.tag.fontSize};
-      font-family: ${theme.typography.fontFamily};
-      font-weight: ${theme.typography.tag.fontWeight};
-    `}
+      font-size: ${theme.typography.label.fontSize};
+      font-weight: ${theme.typography.label.fontWeight};
+    `};
   `,
 };
