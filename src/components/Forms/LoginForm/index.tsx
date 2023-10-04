@@ -3,6 +3,10 @@ import { ActionContainer, Form } from './styles';
 import { TextField } from 'components/Inputs/TextField';
 import { useForm } from 'react-hook-form';
 import { loginValidation } from './validationSchema';
+import { useDispatch } from 'react-redux';
+import { loginSuccess, loginFailed } from 'ducks/authSlice';
+import { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 const LoginForm = () => {
   const {
@@ -18,10 +22,19 @@ const LoginForm = () => {
     resolver: loginValidation,
   });
 
-  const onSubmit = (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
-  };
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const onSubmit = useCallback(
+    ({ email, password }) => {
+      if (email === 'altair@autono.dev' && password === 'a1b2c3d4e5') {
+        dispatch(loginSuccess({ id: 1, name: 'Altair' }));
+        return router.push('/bbq');
+      }
+      return dispatch(loginFailed('Dados incorretos'));
+    },
+    [dispatch, router],
+  );
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
