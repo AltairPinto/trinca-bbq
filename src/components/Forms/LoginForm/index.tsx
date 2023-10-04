@@ -27,7 +27,7 @@ const LoginForm = () => {
 
   const onSubmit = useCallback(
     ({ email, password }) => {
-      if (email === 'altair@autono.dev' && password === 'a1b2c3d4e5') {
+      if (email === 'altair@email.com' && password === 'a1b2c3d4e5') {
         dispatch(loginSuccess({ id: 1, name: 'Altair' }));
         return router.push('/bbq');
       }
