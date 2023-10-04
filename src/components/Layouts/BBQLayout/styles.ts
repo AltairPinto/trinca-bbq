@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-color: ${({ theme }) => theme.colors.gray};
+  background-color: ${({ theme }) => theme.colors.icedWhite};
 `;
 
 export const BackgroundImage = styled.div`

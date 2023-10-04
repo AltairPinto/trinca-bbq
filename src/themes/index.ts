@@ -4,6 +4,7 @@ export interface Theme {
     secondary: string;
     black: string;
     white: string;
+    icedWhite: string;
     gray: string;
     error: string;
     success: string;
@@ -60,6 +61,7 @@ const theme: Theme = {
     secondary: '#998220',
     black: '#000000',
     white: '#FFFFFF',
+    icedWhite: '#FAFAFA',
     gray: '#F1F1F1',
     error: '#FF3333',
     success: '#22bb33',
