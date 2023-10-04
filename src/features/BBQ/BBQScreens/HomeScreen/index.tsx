@@ -5,6 +5,8 @@ const HomeScreen = () => {
   return (
     <Container>
       <Card />
+      <Card />
+      <Card />
     </Container>
   );
 };

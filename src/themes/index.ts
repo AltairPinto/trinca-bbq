@@ -73,23 +73,23 @@ const theme: Theme = {
       lineHeight: '2.348rem',
     },
     h2: {
-      fontSize: '1.5rem',
-      fontWeight: 600,
+      fontSize: '1.75rem',
+      fontWeight: 800,
       lineHeight: '2.348rem',
     },
     h3: {
-      fontSize: '1.25rem',
+      fontSize: '1.5rem',
       fontWeight: 700,
       lineHeight: '2.348rem',
     },
     h4: {
       fontWeight: 500,
-      fontSize: '1rem',
+      fontSize: '1.25rem',
       lineHeight: '2.348rem',
     },
     h5: {
       fontWeight: 500,
-      fontSize: '.75rem',
+      fontSize: '1rem',
       lineHeight: '2.348rem',
     },
     label: {
