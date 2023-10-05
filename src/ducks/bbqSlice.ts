@@ -18,11 +18,13 @@ const bbqSlice = createSlice({
   reducers: {
     createEvent: (state, action: PayloadAction<BBQEvent>) => {
       state.events.push(action.payload);
+      toast.success(`Churras "${action.payload.title}" criado!`);
     },
     removeEvent: (state, action: PayloadAction<string>) => {
       state.events = state.events.filter(
         (event) => event.id !== action.payload,
       );
+      toast.success(`Churras removido!`);
     },
     addGuest: (
       state,
@@ -38,8 +40,10 @@ const bbqSlice = createSlice({
               event.amountWithBeer
             : convertBackToNumber(String(action.payload.guest.amount)),
         });
+        toast.success(
+          `Participante "${action.payload.guest.name}" adicionado!`,
+        );
       }
-      toast.success(`Participante ${action.payload.guest.name} adicionado!`);
     },
     removeGuest: (
       state,
@@ -50,8 +54,8 @@ const bbqSlice = createSlice({
         event.guests = event.guests.filter(
           (p) => p.id !== action.payload.guestId,
         );
+        toast.success(`Participante removido!`);
       }
-      toast.success(`Participante removido!`);
     },
     handlePayment: (
       state,
@@ -66,6 +70,11 @@ const bbqSlice = createSlice({
         const guest = event.guests.find((p) => p.id === action.payload.guestId);
         if (guest) {
           guest.confirmed = action.payload.confirmed;
+          toast.success(
+            `Participante "${guest.name}" ${
+              action.payload.confirmed ? 'confirmado(a)' : 'não confirmado(a)'
+            }!`,
+          );
         }
       }
     },
