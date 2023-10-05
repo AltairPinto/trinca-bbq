@@ -5,3 +5,8 @@ export function formatToReais(amount: number) {
       currency: 'BRL',
     });
 }
+
+export function convertBackToNumber(formattedValue: string) {
+  const cleaned = formattedValue.replace(/[^0-9]/g, '');
+  return parseFloat(cleaned) / 100;
+}

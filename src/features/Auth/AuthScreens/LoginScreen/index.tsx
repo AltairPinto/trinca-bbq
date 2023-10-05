@@ -1,4 +1,4 @@
-import { LoginForm } from 'components/Forms/LoginForm';
+import { LoginForm } from 'features/Auth/AuthForms/LoginForm';
 import { Container } from './styles';
 
 const LoginScreen = () => {

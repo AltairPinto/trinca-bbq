@@ -3,6 +3,7 @@ import theme from 'themes';
 import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import store from 'store';
+import { Toaster } from 'react-hot-toast';
 
 const Noop = ({ children }) => <>{children}</>;
 
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }) {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        <Toaster position="bottom-center" reverseOrder={false} />
       </ThemeProvider>
     </Provider>
   );

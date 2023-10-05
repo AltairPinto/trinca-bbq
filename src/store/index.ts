@@ -28,6 +28,7 @@ const loadStateFromLocalStorage = () => {
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const preloadedState = loadStateFromLocalStorage();
 
 const rootReducer = combineReducers({
@@ -37,7 +38,7 @@ const rootReducer = combineReducers({
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState,
+  // preloadedState,
 });
 
 store.subscribe(() => {

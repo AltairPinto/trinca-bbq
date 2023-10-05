@@ -14,6 +14,7 @@ const PageBBQ = ({ events }) => {
 PageBBQ.Layout = BBQLayout;
 
 export async function getStaticProps() {
+  // Simulador de requisição
   const eventsTemp = store.getState().bbq.events;
 
   const events = [];

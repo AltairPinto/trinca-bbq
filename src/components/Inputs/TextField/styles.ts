@@ -14,10 +14,10 @@ export const Container = styled.div`
   }
 `;
 
-export const Input = styled.input<{ error: boolean }>`
+export const Input = styled.input<{ error: boolean; fullWidth: boolean }>`
   display: flex;
 
-  width: 17.625rem;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : '17.625rem')};
   height: 3.125rem;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 0.125rem;

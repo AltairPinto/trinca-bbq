@@ -8,6 +8,7 @@ export interface TypographyProps {
   color?: string;
   selected?: boolean;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 const Typography = ({

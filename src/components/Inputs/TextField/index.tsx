@@ -7,6 +7,7 @@ type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   error?: boolean;
   helperText?: string;
   required?: boolean;
+  fullWidth?: boolean;
 };
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -19,6 +20,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       onBlur,
       helperText,
       required,
+      fullWidth,
       ...props
     },
     ref,
@@ -33,6 +35,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           onBlur={onBlur}
           error={error}
           required={required}
+          fullWidth={fullWidth}
           {...props}
         />
         {error && (

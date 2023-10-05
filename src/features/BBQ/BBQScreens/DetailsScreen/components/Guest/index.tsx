@@ -1,10 +1,10 @@
-import { Typography } from 'components/Typography';
 import { Container, Left, Right, Amount } from './styles';
 import { handlePayment, removeGuest } from 'ducks/bbqSlice';
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { useDispatch } from 'react-redux';
 import type { Guest as IGuest } from 'features/BBQ/BBQtypes';
+import { Checkbox } from 'components/Inputs/Checkbox';
 
 type GuestProps = IGuest & { eventId: string };
 
@@ -20,12 +20,9 @@ const Guest: React.FC<GuestProps> = ({
   return (
     <Container>
       <Left>
-        <Image
-          src={`/icons/icon_${confirmed ? 'full' : 'empty'}_circle.svg`}
-          alt="Confirmation indicator icon"
-          width={25}
-          height={25}
-          loading="lazy"
+        <Checkbox
+          checked={confirmed}
+          title={name}
           onClick={() =>
             dispatch(
               handlePayment({
@@ -35,9 +32,7 @@ const Guest: React.FC<GuestProps> = ({
               }),
             )
           }
-          style={{ cursor: 'pointer' }}
         />
-        <Typography>{name}</Typography>
       </Left>
       <Right>
         <Amount confirmed={confirmed}>{formatToReais(amount)}</Amount>{' '}

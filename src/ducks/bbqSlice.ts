@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { mockedEvent } from '__mocks__';
 import { BBQEvent, Guest } from 'features/BBQ/BBQtypes';
+import toast from 'react-hot-toast';
+import { convertBackToNumber } from 'utils/currencyUtils';
 
 type BBQState = {
   events: BBQEvent[];
@@ -27,9 +29,17 @@ const bbqSlice = createSlice({
       action: PayloadAction<{ eventId: string; guest: Guest }>,
     ) => {
       const event = state.events.find((e) => e.id === action.payload.eventId);
+
       if (event) {
-        event.guests.push(action.payload.guest);
+        event.guests.push({
+          ...action.payload.guest,
+          amount: action.payload.guest.withBeer
+            ? convertBackToNumber(String(action.payload.guest.amount)) +
+              event.amountWithBeer
+            : convertBackToNumber(String(action.payload.guest.amount)),
+        });
       }
+      toast.success(`Participante ${action.payload.guest.name} adicionado!`);
     },
     removeGuest: (
       state,
@@ -41,6 +51,7 @@ const bbqSlice = createSlice({
           (p) => p.id !== action.payload.guestId,
         );
       }
+      toast.success(`Participante removido!`);
     },
     handlePayment: (
       state,

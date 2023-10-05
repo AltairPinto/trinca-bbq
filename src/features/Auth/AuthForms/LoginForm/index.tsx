@@ -27,8 +27,8 @@ const LoginForm = () => {
 
   const onSubmit = useCallback(
     ({ email, password }) => {
-      if (email === 'altair@email.com' && password === 'a1b2c3d4e5') {
-        dispatch(loginSuccess({ id: 1, name: 'Altair' }));
+      if (email === 'trinca@email.com' && password === 'a1b2c3d4e5') {
+        dispatch(loginSuccess({ id: 1, name: 'Trinca' }));
         return router.push('/bbq');
       }
       return dispatch(loginFailed('Dados incorretos'));
