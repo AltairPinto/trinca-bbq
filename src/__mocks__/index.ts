@@ -1,72 +1,114 @@
-export const mockedEvents = [
-  {
-    id: 1,
-    title: 'Niver do Gui',
-    date: new Date(),
-    guests: [
-      {
-        id: 1,
-        user: {
-          id: 1,
-          name: 'Alice',
-        },
-        amount: 20,
-        confirmed: false,
-      },
-      {
-        id: 2,
-        user: {
-          id: 2,
-          name: 'Beto',
-        },
-        amount: 20,
-        confirmed: false,
-      },
-      {
-        id: 3,
-        user: {
-          id: 3,
-          name: 'Diego B.',
-        },
-        amount: 20,
-        confirmed: false,
-      },
-      {
-        id: 4,
-        user: {
-          id: 4,
-          name: 'Diego P.',
-        },
-        amount: 10,
-        confirmed: false,
-      },
-      {
-        id: 5,
-        user: {
-          id: 5,
-          name: 'Fernando',
-        },
-        amount: 20,
-        confirmed: false,
-      },
-      {
-        id: 6,
-        user: {
-          id: 6,
-          name: 'Gabriel',
-        },
-        amount: 20,
-        confirmed: true,
-      },
-      {
-        id: 7,
-        user: {
-          id: 7,
-          name: 'Leonardo',
-        },
-        amount: 10,
-        confirmed: false,
-      },
-    ],
-  },
-];
+export const mockedEvent = {
+  id: '1',
+  title: 'Niver do Gui',
+  date: new Date('10/04/2023'),
+  amountWithBeer: 20,
+  amount: 10,
+  guests: [
+    {
+      id: '1',
+      name: 'Alice',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '2',
+      name: 'Beto',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '3',
+      name: 'Diego B.',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '4',
+      name: 'Diego P.',
+      withBeer: true,
+      amount: 10,
+      confirmed: false,
+    },
+    {
+      id: '5',
+      name: 'Fernando',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '6',
+      name: 'Gabriel',
+      withBeer: true,
+      amount: 20,
+      confirmed: true,
+    },
+    {
+      id: '7',
+      name: 'Leonardo',
+      withBeer: false,
+      amount: 10,
+      confirmed: false,
+    },
+    {
+      id: '8',
+      name: 'Marcus J.',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '9',
+      name: 'Michele',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '10',
+      name: 'Paulo',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '11',
+      name: 'Rafael S.',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '12',
+      name: 'Ralf',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '13',
+      name: 'Ruan',
+      withBeer: true,
+      amount: 20,
+      confirmed: true,
+    },
+    {
+      id: '14',
+      name: 'Thales',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+    {
+      id: '15',
+      name: 'Wait',
+      withBeer: true,
+      amount: 20,
+      confirmed: false,
+    },
+  ],
+};

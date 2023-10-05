@@ -1,10 +1,10 @@
-import { mockedEvents } from '__mocks__';
 import { BBQLayout } from 'components/Layouts/BBQLayout';
 import { ProtectedRoute } from 'components/ProtectedRoute';
 import { DetailsScreen } from 'features/BBQ/BBQScreens/DetailsScreen';
-import { IBbq } from 'features/BBQ/BBQtypes';
+import { BBQEvent } from 'features/BBQ/BBQtypes';
+import store from 'store';
 
-const PageBBQDetails = ({ event }: { event: IBbq }) => {
+const PageBBQDetails = ({ event }: { event: BBQEvent }) => {
   return (
     <ProtectedRoute>
       <DetailsScreen {...event} date={new Date(event.date)} />
@@ -15,7 +15,7 @@ const PageBBQDetails = ({ event }: { event: IBbq }) => {
 PageBBQDetails.Layout = BBQLayout;
 
 export async function getStaticPaths() {
-  const paths = mockedEvents.map((event) => ({
+  const paths = store.getState().bbq.events.map((event) => ({
     params: { id: String(event.id) },
   }));
 
@@ -23,7 +23,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const findEvent = mockedEvents.find((p) => String(p.id) === params.id);
+  const findEvent = store
+    .getState()
+    .bbq.events.find((p) => String(p.id) === params.id);
 
   const event = { ...findEvent, date: findEvent.date.toISOString() };
   return { props: { event } };

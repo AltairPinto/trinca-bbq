@@ -1,19 +1,17 @@
-export type User = {
-  id: number;
-  name: string;
-};
-
 export type Guest = {
-  id: number;
-  user: User;
+  id: string;
+  name: string;
+  withBeer: boolean;
   amount: number;
   confirmed: boolean;
 };
 
-export interface IBbq {
-  id: number;
-  title: string;
+export interface BBQEvent {
+  id: string;
   date: Date;
+  title: string;
   observation?: string;
-  guests: Array<Guest>;
+  amountWithBeer: number;
+  amount: number;
+  guests: Guest[];
 }

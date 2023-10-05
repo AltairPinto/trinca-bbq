@@ -1,0 +1,74 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { mockedEvent } from '__mocks__';
+import { BBQEvent, Guest } from 'features/BBQ/BBQtypes';
+
+type BBQState = {
+  events: BBQEvent[];
+};
+
+const initialState: BBQState = {
+  events: [{ ...mockedEvent }],
+};
+
+const bbqSlice = createSlice({
+  name: 'bbq',
+  initialState,
+  reducers: {
+    createEvent: (state, action: PayloadAction<BBQEvent>) => {
+      state.events.push(action.payload);
+    },
+    removeEvent: (state, action: PayloadAction<string>) => {
+      state.events = state.events.filter(
+        (event) => event.id !== action.payload,
+      );
+    },
+    addGuest: (
+      state,
+      action: PayloadAction<{ eventId: string; guest: Guest }>,
+    ) => {
+      const event = state.events.find((e) => e.id === action.payload.eventId);
+      if (event) {
+        event.guests.push(action.payload.guest);
+      }
+    },
+    removeGuest: (
+      state,
+      action: PayloadAction<{ eventId: string; guestId: string }>,
+    ) => {
+      const event = state.events.find((e) => e.id === action.payload.eventId);
+      if (event) {
+        event.guests = event.guests.filter(
+          (p) => p.id !== action.payload.guestId,
+        );
+      }
+    },
+    handlePayment: (
+      state,
+      action: PayloadAction<{
+        eventId: string;
+        guestId: string;
+        confirmed: boolean;
+      }>,
+    ) => {
+      const event = state.events.find((e) => e.id === action.payload.eventId);
+      if (event) {
+        const guest = event.guests.find((p) => p.id === action.payload.guestId);
+        if (guest) {
+          guest.confirmed = action.payload.confirmed;
+        }
+      }
+    },
+  },
+});
+
+export const {
+  createEvent,
+  removeEvent,
+  addGuest,
+  removeGuest,
+  handlePayment,
+} = bbqSlice.actions;
+
+export const selectEvents = (state) => state.bbq.events;
+
+export default bbqSlice.reducer;

@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
-  cursor: pointer;
 `;
 
 export const Left = styled.div`
@@ -15,9 +14,15 @@ export const Left = styled.div`
   gap: 1.2rem;
 `;
 
-export const Right = styled(Typography)<{ confirmed: boolean }>`
+export const Right = styled.div`
   position: absolute;
   right: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+`;
+
+export const Amount = styled(Typography)<{ confirmed: boolean }>`
   ${({ confirmed }) =>
     confirmed &&
     css`

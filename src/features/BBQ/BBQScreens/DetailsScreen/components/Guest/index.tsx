@@ -1,10 +1,22 @@
 import { Typography } from 'components/Typography';
-import { Container, Left, Right } from './styles';
-import type { Guest as IGuest } from 'features/BBQ/BBQtypes';
+import { Container, Left, Right, Amount } from './styles';
+import { handlePayment, removeGuest } from 'ducks/bbqSlice';
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
+import { useDispatch } from 'react-redux';
+import type { Guest as IGuest } from 'features/BBQ/BBQtypes';
 
-const Guest: React.FC<IGuest> = ({ user, confirmed, amount }) => {
+type GuestProps = IGuest & { eventId: string };
+
+const Guest: React.FC<GuestProps> = ({
+  id,
+  name,
+  confirmed,
+  amount,
+  eventId,
+}) => {
+  const dispatch = useDispatch();
+
   return (
     <Container>
       <Left>
@@ -14,10 +26,38 @@ const Guest: React.FC<IGuest> = ({ user, confirmed, amount }) => {
           width={25}
           height={25}
           loading="lazy"
+          onClick={() =>
+            dispatch(
+              handlePayment({
+                eventId: eventId,
+                guestId: id,
+                confirmed: !confirmed,
+              }),
+            )
+          }
+          style={{ cursor: 'pointer' }}
         />
-        <Typography>{user?.name}</Typography>
+        <Typography>{name}</Typography>
       </Left>
-      <Right confirmed={confirmed}>{formatToReais(amount)} </Right>
+      <Right>
+        <Amount confirmed={confirmed}>{formatToReais(amount)}</Amount>{' '}
+        <Image
+          src="/icons/icon_trash.svg"
+          alt="Remove guest icon"
+          width={25}
+          height={25}
+          loading="lazy"
+          onClick={() =>
+            dispatch(
+              removeGuest({
+                eventId: eventId,
+                guestId: id,
+              }),
+            )
+          }
+          style={{ cursor: 'pointer' }}
+        />
+      </Right>
     </Container>
   );
 };

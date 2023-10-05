@@ -7,8 +7,9 @@ export const Container = styled.div`
 
   width: 100vw;
   height: 100vh;
+
   background-color: ${({ theme }) => theme.colors.icedWhite};
-  overflow: hidden;
+  overflow-x: hidden;
 `;
 
 export const BackgroundImage = styled.div`
@@ -33,7 +34,11 @@ export const Content = styled.div`
 export const Footer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 7.5rem;
+
+  position: absolute;
+  bottom: 1.75rem;
+  left: 0;
+  right: 0;
 `;
 
 export const Title = styled(Typography)`

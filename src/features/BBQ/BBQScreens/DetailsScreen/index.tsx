@@ -1,4 +1,3 @@
-import { IBbq } from 'features/BBQ/BBQtypes';
 import {
   Container,
   Content,
@@ -15,11 +14,17 @@ import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { formatDateToDDMM } from 'utils/dateUtils';
 import { Guest } from './components/Guest';
+import { BBQEvent } from 'features/BBQ/BBQtypes';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store';
 
-const DetailsScreen = ({ date, title, guests }: IBbq) => {
+const DetailsScreen = ({ id, date, title }: BBQEvent) => {
+  const { guests } = useSelector((state: RootState) => state.bbq.events).find(
+    (e) => e.id === id,
+  );
+
   const totalAmount = guests?.reduce((total, person) => {
-    if (person.confirmed) return total + person.amount;
-    return total;
+    return total + person.amount;
   }, 0);
 
   return (
@@ -52,10 +57,9 @@ const DetailsScreen = ({ date, title, guests }: IBbq) => {
           </Content>
         </HeaderAmounts>
       </Header>
-
       <Body>
         {guests.map((guest, key) => (
-          <Guest key={key} {...guest} />
+          <Guest key={key} eventId={id} {...guest} />
         ))}
       </Body>
     </Container>

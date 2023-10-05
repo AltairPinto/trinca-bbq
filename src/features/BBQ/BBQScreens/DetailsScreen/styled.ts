@@ -6,7 +6,8 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.06);
   width: 36.75rem;
-  max-height: 53.375rem;
+  height: 100%;
+  max-height: calc(100vh - 16rem);
   padding: 1.5rem;
   overflow-y: auto;
 `;
