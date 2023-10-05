@@ -1,9 +1,10 @@
 import { BBQLayout } from 'components/Layouts/BBQLayout';
 import { ProtectedRoute } from 'components/ProtectedRoute';
 import { HomeScreen } from 'features/BBQ/BBQScreens/HomeScreen';
+import { BBQEvent } from 'features/BBQ/BBQtypes';
 import store from 'store';
 
-const PageBBQ = ({ events }) => {
+const PageBBQ = ({ events }: { events: BBQEvent[] }) => {
   return (
     <ProtectedRoute>
       <HomeScreen events={events} />

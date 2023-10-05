@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextField } from '../TextField';
 
-type ICurrencyInput = React.InputHTMLAttributes<HTMLInputElement> & {
+type CurrencyInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   error?: boolean;
   helperText?: string;
@@ -10,7 +10,7 @@ type ICurrencyInput = React.InputHTMLAttributes<HTMLInputElement> & {
   setFinalValue: (value) => void;
 };
 
-const CurrencyInput: React.FC<ICurrencyInput> = (props) => {
+const CurrencyInput = (props: CurrencyInputProps) => {
   const [value, setValue] = useState('');
 
   const formatToReais = (str) => {

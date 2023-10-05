@@ -5,7 +5,11 @@ import { Container } from './styles';
 import { Button } from 'components/Button';
 import { useRouter } from 'next/router';
 
-const ProtectedRoute = ({ children }) => {
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+}
+
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const user = useSelector((state: RootState) => state.auth.user);
   const router = useRouter();
 

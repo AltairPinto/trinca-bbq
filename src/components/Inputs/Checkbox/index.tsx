@@ -2,7 +2,7 @@ import { Typography } from 'components/Typography';
 import { Container } from './styles';
 import Image from 'next/image';
 
-interface ICheckBox {
+interface CheckboxProps {
   checked: boolean;
   onClick: () => void;
   title: string;
@@ -10,13 +10,13 @@ interface ICheckBox {
   helperText?: string;
 }
 
-const Checkbox: React.FC<ICheckBox> = ({
+const Checkbox = ({
   checked,
   onClick,
   title,
   error,
   helperText,
-}) => {
+}: CheckboxProps) => {
   return (
     <>
       <Container>

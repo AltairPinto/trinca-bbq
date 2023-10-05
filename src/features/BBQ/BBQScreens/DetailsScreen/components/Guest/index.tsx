@@ -8,13 +8,7 @@ import { Checkbox } from 'components/Inputs/Checkbox';
 
 type GuestProps = IGuest & { eventId: string };
 
-const Guest: React.FC<GuestProps> = ({
-  id,
-  name,
-  confirmed,
-  amount,
-  eventId,
-}) => {
+const Guest = ({ id, name, confirmed, amount, eventId }: GuestProps) => {
   const dispatch = useDispatch();
 
   return (

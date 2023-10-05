@@ -10,12 +10,12 @@ import { v4 } from 'uuid';
 import { Checkbox } from 'components/Inputs/Checkbox';
 import { CurrencyInput } from 'components/Inputs/CurrencyInput';
 
-interface IGuestForm {
+interface GuestFormProps {
   onClose: () => void;
   eventId: string;
 }
 
-const GuestForm: React.FC<IGuestForm> = ({ onClose, eventId }) => {
+const GuestForm = ({ onClose, eventId }: GuestFormProps) => {
   const {
     register,
     handleSubmit,

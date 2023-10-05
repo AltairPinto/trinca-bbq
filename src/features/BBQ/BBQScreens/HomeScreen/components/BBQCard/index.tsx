@@ -12,7 +12,7 @@ import { formatToReais } from 'utils/currencyUtils';
 import { formatDateToDDMM } from 'utils/dateUtils';
 import { Card } from 'components/Card';
 
-interface CardProps {
+interface BBQCardProps {
   key: string | number;
   date: Date;
   title: string;
@@ -28,7 +28,7 @@ const BBQCard = ({
   totalGuests,
   totalAmount,
   onClick,
-}: CardProps) => {
+}: BBQCardProps) => {
   return (
     <Card key={key} onClick={onClick}>
       <Header>
