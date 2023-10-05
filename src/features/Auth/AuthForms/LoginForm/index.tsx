@@ -45,6 +45,7 @@ const LoginForm = () => {
         error={Boolean(errors.email)}
         helperText={String(errors.email?.message)}
         {...register('email')}
+        data-testId="email"
       />
       <TextField
         name="password"
@@ -54,12 +55,11 @@ const LoginForm = () => {
         error={Boolean(errors.password)}
         helperText={String(errors.password?.message)}
         {...register('password')}
+        data-testId="password"
       />
-      <ActionContainer>
-        <Button type="submit" disabled={!isValid}>
-          Entrar
-        </Button>
-      </ActionContainer>
+      <Button type="submit" disabled={!isValid} data-testId="btnLogin">
+        Entrar
+      </Button>
     </Form>
   );
 };
