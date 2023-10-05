@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { BBQAddCard } from './components/BBQAddCard';
-import { BBQCard } from './components/BBQCard';
+import { BBQAddCard } from 'features/BBQ/BBQScreens/HomeScreen/components/BBQAddCard';
+import { BBQCard } from 'features/BBQ/BBQScreens/HomeScreen/components/BBQCard';
 import { Container } from './styles';
 import { useState } from 'react';
 import { Modal } from 'components/Modal';

@@ -16,7 +16,6 @@ import {
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { formatDateToDDMM } from 'utils/dateUtils';
-import { Guest } from './components/Guest';
 import { BBQEvent } from 'features/BBQ/BBQtypes';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
@@ -24,7 +23,8 @@ import { Typography } from 'components/Typography';
 import { Modal } from 'components/Modal';
 import { useMemo, useState } from 'react';
 import { GuestForm } from 'features/BBQ/BBQForms/GuestForm';
-import { EventRemove } from './components/EventRemove';
+import { Guest } from 'features/BBQ/BBQScreens/DetailsScreen/components/Guest';
+import { EventRemove } from 'features/BBQ/BBQScreens/DetailsScreen/components/EventRemove';
 import { useRouter } from 'next/router';
 
 const DetailsScreen = ({
