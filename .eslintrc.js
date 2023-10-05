@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'next/core-web-vitals',
+    'plugin:cypress/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,7 +20,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'jsx-a11y'],
+  plugins: ['react', '@typescript-eslint', 'jsx-a11y', 'cypress'],
   rules: {
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -39,4 +40,8 @@ module.exports = {
       },
     },
   ],
+  globals: {
+    cy: true,
+    Cypress: true,
+  },
 };

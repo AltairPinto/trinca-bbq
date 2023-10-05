@@ -13,5 +13,6 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
     padding-right: 0.5rem;
+    max-height: 65vh;
   }
 `;
