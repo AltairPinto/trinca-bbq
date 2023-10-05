@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Agenda de Churras
 
-## Getting Started
+Este projeto utiliza o [NextJS](https://nextjs.org/) com [React](https://react.dev/), testes unitários com [Jest](https://jestjs.io/pt-BR/) e [Cypress](https://www.cypress.io/) para testes end-to-end.
 
-First, run the development server:
+## Pré-requisitos
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Node.js (v18.12.1)
+- Yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuração inicial
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone o repositório;
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+2. Navegue até o diretório do projeto;
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. Instale as dependências:
 
-## Learn More
+`yarn`
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura do projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `public`: Contém as imagens do projeto.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `src/__mocks__`: Contém um arquivo de mock de dados para carregar informações pré-configuradas para o projeto.
+- `src/components`: Contém os componentes genéricos da aplicação, incluindo estilização e testes unitários (em alguns casos).
+- `src/ducks`: Contém os Slices para manipulação da árvore de estado da aplicação com o [Redux](https://redux.js.org/).
+- `src/features`: Contém as feature folders, pastas para os módulos/páginas do sistema que contemplam componentes exclusivos.
+- `src/pages`: Por padrão, a pasta pages contém as páginas a serem renderizadas na aplicação de acordo com a arquitetura do Next.
+- `src/store`: Contém as configurações de armazenamento, combinação de reducers e persistência da aplicação.
+- `src/styles`: Contém a estilização padrão do projeto de acordo com o Next.
+- `src/themes`: Contém o arquivo de tema do sistema;
+- `src/utils`: Contém os arquivos de utils para auxiliar os componentes do sistema.
 
-## Deploy on Vercel
+- `cypress/e2e`: Contém os arquivos de teste.
+- `cypress/fixtures`: Utilizado para dados estáticos usados em testes.
+- `cypress/plugins`: Permite adicionar plugins ao Cypress.
+- `cypress/support`: Contém arquivos para comandos personalizados ou comportamentos sobrescritos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Executando os testes unitários
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+É necessário apenas executar o comando de testes
+
+`yarn test`
+
+## Executando os testes e2e
+
+É necessário executar o projeto em localhost para que seja feito o teste e2e
+
+`yarn dev`
+
+### Modo interativo
+
+Para executar os testes em um modo interativo, onde você pode ver os testes sendo executados em uma janela do navegador, use:
+
+`yarn cypress:open`
+
+Depois disso, o Cypress irá abrir uma janela. Clique no teste que deseja executar.
+
+### Modo headless
+
+Se você deseja executar os testes no modo headless (sem a interface gráfica):
+
+`yarn cypress:run`
+
+## Informações Adicionais
+
+As informações de Login para teste são:
+
+e-mail: trinca@email.com
+senha: a1b2c3d4e5
