@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-import { Container, Content, Footer, BackgroundImage } from './styles';
-import { Typography } from 'components/Typography';
+import { Container, Content, Footer, BackgroundImage, Title } from './styles';
 import Image from 'next/image';
 
 interface BBQLayoutProps {
@@ -12,7 +11,7 @@ const BBQLayout = ({ children }: BBQLayoutProps) => {
     <Container>
       <BackgroundImage />
       <Content>
-        <Typography variant="h1">Agenda de Churras</Typography>
+        <Title variant="h1">Agenda de Churras</Title>
         {children}
         <Footer>
           <Image

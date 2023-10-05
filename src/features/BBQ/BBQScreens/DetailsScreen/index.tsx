@@ -1,3 +1,4 @@
+import { IBbq } from 'features/BBQ/BBQtypes';
 import {
   Container,
   Content,
@@ -12,7 +13,6 @@ import {
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { formatDateToDDMM } from 'utils/dateUtils';
-import { IBbq } from '../types';
 
 const DetailsScreen = ({ date, title, guests }: IBbq) => {
   const totalAmount = guests?.reduce((total, person) => {

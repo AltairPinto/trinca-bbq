@@ -1,7 +1,9 @@
+import { Typography } from 'components/Typography';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  position: relative;
 
   width: 100vw;
   height: 100vh;
@@ -14,10 +16,22 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   margin: auto;
+  margin-top: 6.38rem;
+`;
+
+export const Title = styled(Typography)`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 4.38rem;
 `;
 
 export const Footer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 7.5rem;
+
+  position: absolute;
+  bottom: 1.75rem;
+  left: 0;
+  right: 0;
 `;

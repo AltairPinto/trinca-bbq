@@ -2,7 +2,7 @@ import { mockedEvents } from '__mocks__';
 import { BBQLayout } from 'components/Layouts/BBQLayout';
 import { ProtectedRoute } from 'components/ProtectedRoute';
 import { DetailsScreen } from 'features/BBQ/BBQScreens/DetailsScreen';
-import { IBbq } from 'features/BBQ/BBQScreens/types';
+import { IBbq } from 'features/BBQ/BBQtypes';
 
 const PageBBQDetails = ({ event }: { event: IBbq }) => {
   return (

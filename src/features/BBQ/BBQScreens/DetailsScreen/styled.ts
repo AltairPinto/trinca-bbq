@@ -5,8 +5,8 @@ export const Container = styled.div`
   border-radius: 0.125rem;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.06);
-  height: 60vh;
-  width: 50vw;
+  width: 36.75rem;
+  max-height: 53.375rem;
   padding: 1.5rem;
 `;
 
