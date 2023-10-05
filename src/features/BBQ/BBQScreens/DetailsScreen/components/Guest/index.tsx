@@ -8,7 +8,14 @@ import { Checkbox } from 'components/Inputs/Checkbox';
 
 type GuestProps = IGuest & { eventId: string };
 
-const Guest = ({ id, name, confirmed, amount, eventId }: GuestProps) => {
+const Guest = ({
+  id,
+  name,
+  confirmed,
+  amount,
+  withBeer,
+  eventId,
+}: GuestProps) => {
   const dispatch = useDispatch();
 
   return (
@@ -27,6 +34,15 @@ const Guest = ({ id, name, confirmed, amount, eventId }: GuestProps) => {
             )
           }
         />
+        {withBeer && (
+          <Image
+            src="/icons/icon_beer.svg"
+            alt="Beer icon"
+            width={25}
+            height={25}
+            loading="lazy"
+          />
+        )}
       </Left>
       <Right>
         <Amount confirmed={confirmed}>{formatToReais(amount)}</Amount>{' '}

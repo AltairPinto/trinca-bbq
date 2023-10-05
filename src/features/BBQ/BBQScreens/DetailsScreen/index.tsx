@@ -52,6 +52,24 @@ const DetailsScreen = ({
     [guests],
   );
 
+  const paidAmount = useMemo(
+    () =>
+      guests?.reduce((total, person) => {
+        if (person.confirmed) return total + person?.amount;
+        return total;
+      }, 0),
+    [guests],
+  );
+
+  const confirmedGuests = useMemo(
+    () =>
+      guests?.reduce((total, person) => {
+        if (person.confirmed) return total + 1;
+        return total;
+      }, 0),
+    [guests],
+  );
+
   return (
     <>
       <Container>
@@ -80,7 +98,9 @@ const DetailsScreen = ({
                 height={15}
                 loading="lazy"
               />
-              <Counter>{guests?.length}</Counter>
+              <Counter>
+                {confirmedGuests} / {guests?.length}
+              </Counter>
             </Content>
             <Content>
               <Image
@@ -90,7 +110,9 @@ const DetailsScreen = ({
                 height={15}
                 loading="lazy"
               />
-              <Counter>{formatToReais(totalAmount)}</Counter>
+              <Counter>
+                {formatToReais(paidAmount)} / {formatToReais(totalAmount)}
+              </Counter>
             </Content>
           </HeaderAmounts>
         </Header>
