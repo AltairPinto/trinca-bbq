@@ -1,10 +1,16 @@
-import { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import theme from 'themes';
+import { Provider } from 'react-redux';
+import store from 'store';
 
 const AllTheProviders = ({ children }: { children: ReactNode }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>{children}</Provider>
+    </ThemeProvider>
+  );
 };
 
 const customRender = (

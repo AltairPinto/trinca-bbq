@@ -22,7 +22,7 @@ const Checkbox = ({
       <Container>
         <Image
           src={`/icons/icon_${checked ? 'full' : 'empty'}_circle.svg`}
-          alt="Confirmation indicator icon"
+          alt={`Confirmation indicator ${checked ? 'full' : 'empty'} icon`}
           width={25}
           height={25}
           loading="lazy"
