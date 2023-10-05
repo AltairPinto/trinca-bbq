@@ -8,7 +8,3 @@ export const Form = styled.form`
     margin: 2.25rem 0;
   }
 `;
-
-export const ActionContainer = styled.div`
-  margin-top: 4.8rem;
-`;
