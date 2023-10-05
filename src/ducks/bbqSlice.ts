@@ -17,7 +17,13 @@ const bbqSlice = createSlice({
   initialState,
   reducers: {
     createEvent: (state, action: PayloadAction<BBQEvent>) => {
-      state.events.push(action.payload);
+      state.events.push({
+        ...action.payload,
+        amount: convertBackToNumber(String(action.payload.amount)),
+        amountWithBeer: convertBackToNumber(
+          String(action.payload.amountWithBeer),
+        ),
+      });
       toast.success(`Churras "${action.payload.title}" criado!`);
     },
     removeEvent: (state, action: PayloadAction<string>) => {

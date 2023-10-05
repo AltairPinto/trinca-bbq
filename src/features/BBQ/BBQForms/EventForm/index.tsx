@@ -75,8 +75,8 @@ const EventForm = ({ onClose }: EventFormProps) => {
       />
       <CurrencyInput
         name="amountWithBeer"
-        label="Valor sugerido com bebida"
-        placeholder="valor sugerido com bebida"
+        label="Adicional para bebida inclusa"
+        placeholder="Adicional para bebida inclusa"
         error={Boolean(errors.amountWithBeer)}
         helperText={String(errors.amountWithBeer?.message)}
         setFinalValue={(value) => setValue('amountWithBeer', value)}
@@ -93,7 +93,7 @@ const EventForm = ({ onClose }: EventFormProps) => {
       />
       <ActionContainer>
         <Button onClick={onClose}>Cancelar</Button>
-        <Button type="submit" disabled={!isValid}>
+        <Button type="submit" disabled={!isValid} color="secondary">
           Cadastrar
         </Button>
       </ActionContainer>
