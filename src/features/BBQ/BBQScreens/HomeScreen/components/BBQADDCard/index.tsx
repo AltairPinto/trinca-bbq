@@ -4,14 +4,18 @@ import theme from 'themes';
 import Image from 'next/image';
 import { Typography } from 'components/Typography';
 
-const BBQAddCard = () => {
+interface BBQAddCardProps {
+  onClick: () => void;
+}
+
+const BBQAddCard = ({ onClick }: BBQAddCardProps) => {
   return (
     <Card
       style={{
         backgroundColor: theme.colors.gray,
         justifyContent: 'center',
       }}
-      onClick={() => null}
+      onClick={onClick}
     >
       <Container>
         <Circle>

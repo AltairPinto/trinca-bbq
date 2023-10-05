@@ -6,7 +6,7 @@ export const Container = styled.div`
   grid-gap: 1.5rem;
   max-height: calc(3 * 12rem + 2 * 1.5rem);
 
-  max-height: 45vh;
+  max-height: 50vh;
   overflow-y: auto;
   padding: 0.125rem;
 `;

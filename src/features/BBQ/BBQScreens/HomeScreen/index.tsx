@@ -2,9 +2,13 @@ import { useRouter } from 'next/router';
 import { BBQAddCard } from './components/BBQAddCard';
 import { BBQCard } from './components/BBQCard';
 import { Container } from './styles';
+import { useState } from 'react';
+import { Modal } from 'components/Modal';
+import { EventForm } from 'features/BBQ/BBQForms/EventForm';
 
 const HomeScreen = ({ events }) => {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Container>
@@ -23,7 +27,10 @@ const HomeScreen = ({ events }) => {
           />
         );
       })}
-      <BBQAddCard />
+      <BBQAddCard onClick={() => setIsOpen(true)} />
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <EventForm onClose={() => setIsOpen(false)} />
+      </Modal>
     </Container>
   );
 };
