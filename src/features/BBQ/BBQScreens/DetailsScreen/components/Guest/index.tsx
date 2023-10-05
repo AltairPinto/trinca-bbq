@@ -1,10 +1,13 @@
 import { Container, Left, Right, Amount } from './styles';
-import { handlePayment, removeGuest } from 'ducks/bbqSlice';
+import { handlePayment } from 'ducks/bbqSlice';
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { useDispatch } from 'react-redux';
 import type { Guest as IGuest } from 'features/BBQ/BBQtypes';
 import { Checkbox } from 'components/Inputs/Checkbox';
+import { Modal } from 'components/Modal';
+import { GuestRemove } from '../GuestRemove';
+import { useState } from 'react';
 
 type GuestProps = IGuest & { eventId: string };
 
@@ -17,6 +20,7 @@ const Guest = ({
   eventId,
 }: GuestProps) => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Container>
@@ -52,17 +56,18 @@ const Guest = ({
           width={25}
           height={25}
           loading="lazy"
-          onClick={() =>
-            dispatch(
-              removeGuest({
-                eventId: eventId,
-                guestId: id,
-              }),
-            )
-          }
+          onClick={() => setIsOpen(true)}
           style={{ cursor: 'pointer' }}
         />
       </Right>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <GuestRemove
+          guestId={id}
+          eventId={eventId}
+          name={name}
+          onClose={() => setIsOpen(false)}
+        />
+      </Modal>
     </Container>
   );
 };

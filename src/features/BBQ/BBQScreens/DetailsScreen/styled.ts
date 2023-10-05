@@ -11,12 +11,21 @@ export const Container = styled.div`
   padding: 1.5rem;
   overflow-y: auto;
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: auto;
+  }
 `;
 
 export const Header = styled.div`
   display: flex;
   position: relative;
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 export const HeaderText = styled.div`
@@ -26,6 +35,10 @@ export const HeaderText = styled.div`
 export const HeaderAmounts = styled.div`
   position: absolute;
   right: 0;
+
+  @media (max-width: 768px) {
+    position: relative;
+  }
 `;
 
 export const Content = styled.div`

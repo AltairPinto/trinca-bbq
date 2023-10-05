@@ -9,4 +9,9 @@ export const Container = styled.div`
   max-height: 50vh;
   overflow-y: auto;
   padding: 0.125rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding-right: 0.5rem;
+  }
 `;

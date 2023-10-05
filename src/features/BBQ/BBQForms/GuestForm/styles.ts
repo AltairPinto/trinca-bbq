@@ -12,6 +12,13 @@ export const ActionContainer = styled.div`
   button {
     width: 10rem;
   }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    button {
+      width: auto;
+    }
+  }
 `;
 
 export const AmountContainer = styled.div`
