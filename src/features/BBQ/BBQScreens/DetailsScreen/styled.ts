@@ -10,11 +10,13 @@ export const Container = styled.div`
   max-height: calc(100vh - 16rem);
   padding: 1.5rem;
   overflow-y: auto;
+  position: relative;
 `;
 
 export const Header = styled.div`
   display: flex;
   position: relative;
+  margin-top: 1rem;
 `;
 
 export const HeaderText = styled.div`
@@ -27,6 +29,7 @@ export const HeaderAmounts = styled.div`
 `;
 
 export const Content = styled.div`
+  position: relative;
   display: flex;
   gap: 0.2rem;
   align-items: center;
@@ -57,4 +60,28 @@ export const Date = styled(Typography)`
 
 export const Body = styled.div`
   position: relative;
+`;
+
+export const Left = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+`;
+
+export const Right = styled.div`
+  position: relative;
+  margin-left: auto;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+`;
+
+export const BackContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  align-items: center;
+  cursor: pointer;
 `;

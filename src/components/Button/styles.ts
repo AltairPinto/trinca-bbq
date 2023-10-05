@@ -11,7 +11,7 @@ export const Container = styled.button`
 
   ${({ theme, color }) => css`
     background: ${color ?? theme.colors.black};
-    color: ${color ?? theme.colors.white};
+    color: ${theme.colors.white};
     font-size: ${theme.typography.h3.fontSize};
     font-family: ${theme.typography.fontFamily};
     font-weight: ${theme.typography.h3.fontWeight};

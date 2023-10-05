@@ -11,7 +11,7 @@ type CurrencyInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const CurrencyInput = (props: CurrencyInputProps) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(props.value || '');
 
   const formatToReais = (str) => {
     const cleaned = ('' + str).replace(/\D/g, '');

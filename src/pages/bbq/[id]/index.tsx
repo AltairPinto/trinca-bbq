@@ -8,11 +8,11 @@ const PageBBQDetails = ({ eventId }: { eventId: string }) => {
   const { bbq } = useSelector((state: RootState) => state);
   const event = bbq.events.find((e) => e.id === eventId);
 
-  return (
+  return event ? (
     <ProtectedRoute>
       <DetailsScreen {...event} />
     </ProtectedRoute>
-  );
+  ) : null;
 };
 
 PageBBQDetails.Layout = BBQLayout;

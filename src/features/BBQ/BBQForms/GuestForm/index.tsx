@@ -1,5 +1,5 @@
 import { Button } from 'components/Button';
-import { ActionContainer, Form } from './styles';
+import { ActionContainer, AmountContainer, Form } from './styles';
 import { TextField } from 'components/Inputs/TextField';
 import { useForm } from 'react-hook-form';
 import { guestValidation } from './validationSchema';
@@ -9,13 +9,21 @@ import { useCallback, useState } from 'react';
 import { v4 } from 'uuid';
 import { Checkbox } from 'components/Inputs/Checkbox';
 import { CurrencyInput } from 'components/Inputs/CurrencyInput';
+import { formatToReais } from 'utils/currencyUtils';
 
 interface GuestFormProps {
   onClose: () => void;
   eventId: string;
+  amount: number;
+  amountWithBeer: number;
 }
 
-const GuestForm = ({ onClose, eventId }: GuestFormProps) => {
+const GuestForm = ({
+  onClose,
+  eventId,
+  amount,
+  amountWithBeer,
+}: GuestFormProps) => {
   const {
     register,
     handleSubmit,
@@ -28,7 +36,7 @@ const GuestForm = ({ onClose, eventId }: GuestFormProps) => {
       id: v4(),
       name: '',
       withBeer: false,
-      amount: '0',
+      amount: formatToReais(amount),
       confirmed: false,
     },
     resolver: guestValidation,
@@ -57,15 +65,18 @@ const GuestForm = ({ onClose, eventId }: GuestFormProps) => {
         {...register('name')}
         fullWidth
       />
-      <CurrencyInput
-        name="amount"
-        label="Valor sugerido"
-        placeholder="valor sugerido"
-        error={Boolean(errors.amount)}
-        helperText={String(errors.amount?.message)}
-        setFinalValue={(value) => setValue('amount', value)}
-        {...register('amount')}
-      />
+      <AmountContainer>
+        <CurrencyInput
+          name="amount"
+          label="Valor sugerido"
+          placeholder="valor sugerido"
+          error={Boolean(errors.amount)}
+          helperText={String(errors.amount?.message)}
+          setFinalValue={(value) => setValue('amount', value)}
+          value={getValues('amount')}
+          {...register('amount')}
+        />
+      </AmountContainer>
       <Checkbox
         checked={withBeer}
         onClick={() => {
@@ -73,7 +84,7 @@ const GuestForm = ({ onClose, eventId }: GuestFormProps) => {
           setWithBeer(!withBeer);
         }}
         name="withBeer"
-        title="Incluir bebida?"
+        title={`Bebida inclusa? +${formatToReais(amountWithBeer)}`}
         error={Boolean(errors.withBeer)}
         helperText={String(errors.withBeer?.message)}
         {...register('withBeer')}

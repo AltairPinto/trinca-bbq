@@ -1,4 +1,5 @@
 import { Container } from './styles';
+import theme from 'themes';
 
 interface ButtonProps {
   type?: 'submit' | 'reset' | 'button' | undefined;
@@ -6,6 +7,7 @@ interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
   disabled?: boolean | undefined;
   style?: React.CSSProperties;
+  color?: string;
 }
 
 const Button = ({
@@ -14,9 +16,16 @@ const Button = ({
   onClick,
   disabled,
   style,
+  color = 'black',
 }: ButtonProps) => {
   return (
-    <Container type={type} onClick={onClick} disabled={disabled} style={style}>
+    <Container
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      style={style}
+      color={theme.colors[color]}
+    >
       {children}
     </Container>
   );
