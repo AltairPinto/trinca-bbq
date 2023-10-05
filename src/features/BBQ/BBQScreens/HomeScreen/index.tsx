@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import { mockedEvents } from './__mocks__';
-import { BBQADDCard } from './components/BBQADDCard';
+import { mockedEvents } from '__mocks__';
+import { BBQAddCard } from './components/BBQAddCard';
 import { BBQCard } from './components/BBQCard';
 import { Container } from './styles';
 
@@ -10,8 +10,7 @@ const HomeScreen = () => {
     <Container>
       {mockedEvents.map(({ id, title, guests, date }, key) => {
         const totalAmount = guests.reduce((total, person) => {
-          if (person.confirmed) return total + person.amount;
-          return total;
+          return total + person.amount;
         }, 0);
         return (
           <BBQCard
@@ -24,7 +23,7 @@ const HomeScreen = () => {
           />
         );
       })}
-      <BBQADDCard />
+      <BBQAddCard />
     </Container>
   );
 };

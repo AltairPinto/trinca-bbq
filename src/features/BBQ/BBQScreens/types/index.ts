@@ -9,3 +9,11 @@ export type Guest = {
   amount: number;
   confirmed: boolean;
 };
+
+export interface IBbq {
+  id: number;
+  title: string;
+  date: Date;
+  observation?: string;
+  guests: Array<Guest>;
+}

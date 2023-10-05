@@ -13,7 +13,7 @@ export const BackgroundImage = styled.div`
   height: 334px;
 
   background-color: ${({ theme }) => theme.colors.primary};
-  background-image: url('images/bbq_pattern.svg');
+  background-image: url('/images/bbq_pattern.svg');
   background-repeat: repeat-x;
   background-position: center top;
   z-index: 1;

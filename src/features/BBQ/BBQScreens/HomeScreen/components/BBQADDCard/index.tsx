@@ -4,7 +4,7 @@ import theme from 'themes';
 import Image from 'next/image';
 import { Typography } from 'components/Typography';
 
-const BBQADDCard = () => {
+const BBQAddCard = () => {
   return (
     <Card
       style={{
@@ -29,4 +29,4 @@ const BBQADDCard = () => {
   );
 };
 
-export { BBQADDCard };
+export { BBQAddCard };

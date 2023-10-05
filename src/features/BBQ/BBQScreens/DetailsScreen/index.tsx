@@ -1,42 +1,33 @@
 import {
+  Container,
   Content,
   Counter,
-  Date,
-  Footer,
-  FooterContent,
   Header,
+  HeaderText,
   Title,
-} from './styles';
+  Date,
+  HeaderAmounts,
+} from './styled';
+
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { formatDateToDDMM } from 'utils/dateUtils';
-import { Card } from 'components/Card';
+import { IBbq } from '../types';
 
-interface CardProps {
-  key: string | number;
-  date: Date;
-  title: string;
-  totalAmount: number;
-  totalGuests: number;
-  onClick: () => void;
-}
+const DetailsScreen = ({ date, title, guests }: IBbq) => {
+  const totalAmount = guests?.reduce((total, person) => {
+    if (person.confirmed) return total + person.amount;
+    return total;
+  }, 0);
 
-const BBQCard = ({
-  key,
-  date,
-  title,
-  totalGuests,
-  totalAmount,
-  onClick,
-}: CardProps) => {
   return (
-    <Card key={key} onClick={onClick}>
+    <Container>
       <Header>
-        <Date variant="h2">{formatDateToDDMM(date)}</Date>
-        <Title variant="span">{title}</Title>
-      </Header>
-      <Footer>
-        <FooterContent>
+        <HeaderText>
+          <Date variant="h2">{formatDateToDDMM(date)}</Date>
+          <Title>{title}</Title>
+        </HeaderText>
+        <HeaderAmounts>
           <Content>
             <Image
               src="/icons/icon_people.svg"
@@ -45,7 +36,7 @@ const BBQCard = ({
               height={15}
               loading="lazy"
             />
-            <Counter>{totalGuests}</Counter>
+            <Counter>{guests?.length}</Counter>
           </Content>
           <Content>
             <Image
@@ -57,10 +48,10 @@ const BBQCard = ({
             />
             <Counter>{formatToReais(totalAmount)}</Counter>
           </Content>
-        </FooterContent>
-      </Footer>
-    </Card>
+        </HeaderAmounts>
+      </Header>
+    </Container>
   );
 };
 
-export { BBQCard };
+export { DetailsScreen };

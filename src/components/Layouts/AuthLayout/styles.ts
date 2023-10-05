@@ -7,7 +7,7 @@ export const Container = styled.div`
   height: 100vh;
 
   background-color: ${({ theme }) => theme.colors.primary};
-  background-image: url('images/bbq_pattern.svg');
+  background-image: url('/images/bbq_pattern.svg');
   background-repeat: repeat-x;
   background-position: center top;
 `;
