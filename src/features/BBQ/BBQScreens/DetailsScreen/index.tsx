@@ -8,11 +8,13 @@ import {
   Title,
   Date,
   HeaderAmounts,
+  Body,
 } from './styled';
 
 import Image from 'next/image';
 import { formatToReais } from 'utils/currencyUtils';
 import { formatDateToDDMM } from 'utils/dateUtils';
+import { Guest } from './components/Guest';
 
 const DetailsScreen = ({ date, title, guests }: IBbq) => {
   const totalAmount = guests?.reduce((total, person) => {
@@ -50,6 +52,12 @@ const DetailsScreen = ({ date, title, guests }: IBbq) => {
           </Content>
         </HeaderAmounts>
       </Header>
+
+      <Body>
+        {guests.map((guest, key) => (
+          <Guest key={key} {...guest} />
+        ))}
+      </Body>
     </Container>
   );
 };

@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.icedWhite};
+  overflow: hidden;
 `;
 
 export const BackgroundImage = styled.div`

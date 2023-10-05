@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 36.75rem;
   max-height: 53.375rem;
   padding: 1.5rem;
+  overflow-y: auto;
 `;
 
 export const Header = styled.div`
@@ -51,4 +52,8 @@ export const Counter = styled(Typography)`
 export const Date = styled(Typography)`
   margin-bottom: 0.5rem;
   margin-top: 0;
+`;
+
+export const Body = styled.div`
+  position: relative;
 `;
