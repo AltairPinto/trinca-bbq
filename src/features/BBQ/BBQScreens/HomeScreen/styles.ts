@@ -16,3 +16,11 @@ export const Container = styled.div`
     max-height: 65vh;
   }
 `;
+
+export const BackContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  align-items: center;
+  cursor: pointer;
+`;

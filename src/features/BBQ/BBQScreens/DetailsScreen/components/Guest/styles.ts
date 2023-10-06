@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const Left = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 0.125rem;
 `;
 
 export const Right = styled.div`

@@ -4,9 +4,10 @@ import { TextField } from 'components/Inputs/TextField';
 import { useForm } from 'react-hook-form';
 import { loginValidation } from './validationSchema';
 import { useDispatch } from 'react-redux';
-import { loginSuccess, loginFailed } from 'ducks/authSlice';
+import { login } from 'ducks/authSlice';
 import { useCallback } from 'react';
 import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
   const {
@@ -28,10 +29,10 @@ const LoginForm = () => {
   const onSubmit = useCallback(
     ({ email, password }) => {
       if (email === 'trinca@email.com' && password === 'a1b2c3d4e5') {
-        dispatch(loginSuccess({ id: 1, name: 'Trinca' }));
+        dispatch(login({ id: 1, name: 'Trinca' }));
         return router.push('/bbq');
       }
-      return dispatch(loginFailed('Dados incorretos'));
+      return toast.error('Dados incorretos');
     },
     [dispatch, router],
   );
